@@ -9,6 +9,14 @@ const nextConfig: NextConfig = {
         protocol: "http",
         hostname: "brobeerme.local",
       },
+      {
+        protocol: "https",
+        hostname: "brobeerme.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.brobeerme.com",
+      },
     ],
   },
 };

@@ -238,6 +238,8 @@ add_action( 'rest_api_init', function () {
         $allowed = array(
             'http://localhost:3000',
             'http://127.0.0.1:3000',
+            'https://brobeerme.com',
+            'https://www.brobeerme.com',
         );
 
         if ( in_array( $origin, $allowed, true ) ) {
@@ -652,7 +654,7 @@ function bbm_seed_all_data() {
         array(
             'title'   => 'Review: Hazy IPA by HopHead Mike',
             'slug'    => 'hazy-ipa-review-1',
-            'content' => 'Absolutely crushable! The mango and citrus notes are incredibly vibrant.',
+            'content' => 'Absolutely crushable! The mango and citrus notes are incredibly vibrant. This is my go-to hazy and it never disappoints. The mouthfeel is like drinking a cloud.',
             'meta'    => array(
                 'beer_id'         => $hazy_id,
                 'reviewer_name'   => 'HopHead Mike',
@@ -666,7 +668,7 @@ function bbm_seed_all_data() {
         array(
             'title'   => 'Review: Hazy IPA by CraftBeerSarah',
             'slug'    => 'hazy-ipa-review-2',
-            'content' => 'Great hazy IPA with tons of tropical character. Only knock is it\'s a touch sweet for my taste.',
+            'content' => 'Great hazy IPA with tons of tropical character. Only knock is it\'s a touch sweet for my taste. But the aroma when you crack the can is unreal.',
             'meta'    => array(
                 'beer_id'         => $hazy_id,
                 'reviewer_name'   => 'CraftBeerSarah',
@@ -678,9 +680,37 @@ function bbm_seed_all_data() {
             ),
         ),
         array(
+            'title'   => 'Review: Hazy IPA by BrewDogDave',
+            'slug'    => 'hazy-ipa-review-3',
+            'content' => 'One of the best NEIPAs I\'ve had outside of New England. Incredible hop aroma and that pillowy soft body. Bought a case immediately.',
+            'meta'    => array(
+                'beer_id'         => $hazy_id,
+                'reviewer_name'   => 'BrewDogDave',
+                'rating'          => 5,
+                'note_appearance' => 5,
+                'note_aroma'      => 5,
+                'note_taste'      => 5,
+                'note_mouthfeel'  => 4,
+            ),
+        ),
+        array(
+            'title'   => 'Review: Hazy IPA by BeerNovice22',
+            'slug'    => 'hazy-ipa-review-4',
+            'content' => 'I\'m new to craft beer and this was a great introduction to IPAs. Not too bitter, very fruity and approachable. Will definitely try more from this brewery.',
+            'meta'    => array(
+                'beer_id'         => $hazy_id,
+                'reviewer_name'   => 'BeerNovice22',
+                'rating'          => 4,
+                'note_appearance' => 4,
+                'note_aroma'      => 4,
+                'note_taste'      => 4,
+                'note_mouthfeel'  => 4,
+            ),
+        ),
+        array(
             'title'   => 'Review: Chocolate Stout by DarkBeerDan',
             'slug'    => 'chocolate-stout-review-1',
-            'content' => 'This is the stout that got me into stouts. The chocolate and coffee balance is perfection.',
+            'content' => 'This is the stout that got me into stouts. The chocolate and coffee balance is perfection. The oak aging adds just the right amount of complexity.',
             'meta'    => array(
                 'beer_id'         => $stout_id,
                 'reviewer_name'   => 'DarkBeerDan',
@@ -689,6 +719,20 @@ function bbm_seed_all_data() {
                 'note_aroma'      => 5,
                 'note_taste'      => 5,
                 'note_mouthfeel'  => 5,
+            ),
+        ),
+        array(
+            'title'   => 'Review: Chocolate Stout by StoutSnob',
+            'slug'    => 'chocolate-stout-review-2',
+            'content' => 'Pours like motor oil, drinks like liquid dessert. The cacao nibs are clearly high quality - you get real chocolate, not that artificial candy flavor. Outstanding.',
+            'meta'    => array(
+                'beer_id'         => $stout_id,
+                'reviewer_name'   => 'StoutSnob',
+                'rating'          => 5,
+                'note_appearance' => 5,
+                'note_aroma'      => 5,
+                'note_taste'      => 5,
+                'note_mouthfeel'  => 4,
             ),
         ),
     );
@@ -712,5 +756,120 @@ function bbm_seed_all_data() {
                 update_post_meta( $post_id, $key, $value );
             }
         }
+    }
+
+    // Blog Posts
+    $blog_posts = array(
+        array(
+            'title'   => 'The Rise of Hazy IPAs: Why Juice Bombs Took Over Craft Beer',
+            'slug'    => 'rise-of-hazy-ipas',
+            'excerpt' => 'From a regional curiosity to the most popular craft beer style in America - how New England IPAs changed everything we thought we knew about hoppy beer.',
+            'content' => 'The craft beer world has experienced plenty of revolutions, but few have been as rapid and complete as the rise of the hazy IPA. In less than a decade, what started as an underground New England phenomenon has become the single most popular style at craft breweries across the country.
+
+It all started in the early 2010s at small breweries like The Alchemist and Tree House in New England. These brewers discovered that by adjusting their water chemistry, using specific yeast strains, and dry-hopping during active fermentation, they could create IPAs with an entirely different character than the clear, bitter West Coast IPAs that dominated the market.
+
+Today, virtually every craft brewery in America has at least one hazy IPA on their tap list. The style has evolved into sub-categories - milkshake IPAs, smoothie IPAs, cold IPAs - each pushing the boundaries further.',
+            'date'    => '2025-01-20',
+            'cats'    => array( 'Beer Styles', 'Industry' ),
+            'tags'    => array( 'IPA', 'hazy', 'craft beer', 'trends' ),
+        ),
+        array(
+            'title'   => 'A Beginner\'s Guide to Beer Tasting: How to Train Your Palate',
+            'slug'    => 'beginners-guide-beer-tasting',
+            'excerpt' => 'Ready to go beyond \"I like it\" or \"I don\'t\"? Learn the fundamentals of beer tasting - from proper glassware to identifying off-flavors.',
+            'content' => 'You don\'t need to be a certified cicerone to taste beer thoughtfully. With a few simple techniques, you can dramatically improve your ability to identify flavors, appreciate complexity, and describe what you\'re drinking.
+
+The Five S\'s of Beer Tasting: See, Swirl, Smell, Sip, Savor. Hold your glass up to the light. What color is it? Is it clear or hazy? Gently swirl the beer in your glass to release aromatics. Take short sniffs rather than one long inhale. Take a moderate sip and let it coat your entire palate. After swallowing, breathe out through your nose for retronasal olfaction.
+
+The best way to develop your palate is to taste deliberately and often. Try side-by-side comparisons of different styles. Keep tasting notes. And most importantly, trust your own palate.',
+            'date'    => '2025-01-15',
+            'cats'    => array( 'Education', 'Guides' ),
+            'tags'    => array( 'tasting', 'beginners', 'guide', 'palate' ),
+        ),
+        array(
+            'title'   => 'Austin\'s Best Kept Secret Breweries You Need to Visit',
+            'slug'    => 'austin-secret-breweries',
+            'excerpt' => 'Beyond the big names, Austin has a thriving underground beer scene. We visited 10 under-the-radar breweries that deserve way more attention.',
+            'content' => 'Austin, Texas is known for its vibrant craft beer scene, but most visitors only scratch the surface. While iconic spots draw crowds, there\'s a thriving ecosystem of smaller breweries doing incredible work without the fanfare.
+
+Dark Horse Brewery: Tucked away in a converted warehouse in South Austin, doing some of the most impressive barrel-aged stouts in Texas.
+
+Wild Side Ales: If you\'re into sour beer, Wild Side is a revelation. Their coolship program produces spontaneously fermented ales with remarkable complexity.
+
+Fireside Brewing: This cozy brewpub pairs outstanding sessionable ales with wood-fired pizza.',
+            'date'    => '2025-01-10',
+            'cats'    => array( 'Travel', 'Local' ),
+            'tags'    => array( 'Austin', 'breweries', 'travel', 'local' ),
+        ),
+        array(
+            'title'   => 'Stout Season: 5 Dark Beers to Warm Your Winter',
+            'slug'    => 'stout-season-winter-beers',
+            'excerpt' => 'When the temperature drops, it\'s time for rich, warming dark beers. Here are five stouts and porters that belong in your winter rotation.',
+            'content' => 'There\'s something deeply satisfying about cracking open a pitch-black stout on a cold evening. The roasted malts, the chocolate and coffee notes, the warming alcohol - dark beers are built for winter.
+
+Dark Horse Chocolate Stout: An imperial stout brewed with cacao nibs and cold brew coffee. Rich, velvety, and dangerously drinkable.
+
+Fireside Oatmeal Stout: The most sessionable beer on this list at 5.8%, but the flavor is full and satisfying. Silky from the oats with a perfect balance of coffee and chocolate.',
+            'date'    => '2025-01-05',
+            'cats'    => array( 'Beer Styles', 'Seasonal' ),
+            'tags'    => array( 'stout', 'porter', 'winter', 'dark beer' ),
+        ),
+        array(
+            'title'   => 'From Grain to Glass: How Craft Beer Is Made',
+            'slug'    => 'grain-to-glass-how-beer-is-made',
+            'excerpt' => 'Ever wondered what happens between the farm and your pint glass? A complete breakdown of the brewing process from malting to packaging.',
+            'content' => 'Beer is one of humanity\'s oldest beverages, yet the process of making it remains a fascinating blend of science and art.
+
+Step 1: Malting - grain is soaked, germinated, and kiln-dried. Step 2: Mashing - crushed malt mixed with hot water to convert starches to sugars. Step 3: Lautering and Boiling - wort is separated and boiled with hops. Step 4: Fermentation - yeast consumes sugars, producing alcohol and CO2. Step 5: Conditioning - beer ages to mellow flavors. Step 6: Packaging - carbonated and packaged.
+
+Simple ingredients, complex results. That\'s the beauty of brewing.',
+            'date'    => '2024-12-28',
+            'cats'    => array( 'Education', 'Brewing' ),
+            'tags'    => array( 'brewing', 'process', 'education', 'beginners' ),
+        ),
+        array(
+            'title'   => 'IPA vs. Pale Ale: What\'s the Difference?',
+            'slug'    => 'ipa-vs-pale-ale',
+            'excerpt' => 'They\'re both hoppy, they\'re both popular - but IPAs and pale ales are distinct styles with different histories. Here\'s how to tell them apart.',
+            'content' => 'It\'s one of the most common questions in craft beer: what\'s the difference between an IPA and a pale ale? They\'re closely related, but understanding the distinction will help you order with confidence.
+
+An IPA (India Pale Ale) is essentially a bigger, hoppier, stronger version of a pale ale. Pale ales typically have 4.5-6.5% ABV and 30-50 IBU. IPAs range from 5.5-7.5% ABV and 40-70+ IBU.
+
+Want something balanced and easy? Go pale ale. Want something bold and hop-forward? Go IPA. New to craft beer? Start with a pale ale and work your way up.',
+            'date'    => '2024-12-20',
+            'cats'    => array( 'Education', 'Beer Styles' ),
+            'tags'    => array( 'IPA', 'pale ale', 'comparison', 'education' ),
+        ),
+    );
+
+    foreach ( $blog_posts as $bp ) {
+        $existing = get_page_by_path( $bp['slug'], OBJECT, 'post' );
+        if ( $existing ) {
+            continue;
+        }
+
+        // Create/get categories
+        $cat_ids = array();
+        foreach ( $bp['cats'] as $cat_name ) {
+            $term = term_exists( $cat_name, 'category' );
+            if ( ! $term ) {
+                $term = wp_insert_term( $cat_name, 'category' );
+            }
+            if ( ! is_wp_error( $term ) ) {
+                $cat_ids[] = is_array( $term ) ? (int) $term['term_id'] : (int) $term;
+            }
+        }
+
+        wp_insert_post( array(
+            'post_title'    => $bp['title'],
+            'post_name'     => $bp['slug'],
+            'post_content'  => $bp['content'],
+            'post_excerpt'  => $bp['excerpt'],
+            'post_status'   => 'publish',
+            'post_type'     => 'post',
+            'post_date'     => $bp['date'] . ' 12:00:00',
+            'post_category' => $cat_ids,
+            'tags_input'    => $bp['tags'],
+        ) );
     }
 }
